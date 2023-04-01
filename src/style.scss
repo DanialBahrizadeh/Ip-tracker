@@ -1,0 +1,128 @@
+$mobile-size: "375px";
+$desktop-size: "1440px";
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Rubik", sans-serif;
+}
+
+:root {
+  --very-dark-gray: hsl(0, 0%, 17%);
+  --dark-gray: hsl(0, 0%, 59%);
+}
+
+/* this is the class for design the MapContainer*/
+.leaflet-container {
+  height: 100vh;
+
+  .leaflet-bar {
+    display: none;
+  }
+}
+
+.top {
+  position: relative;
+  height: 16rem;
+  background-image: url("./images/pattern-bg-mobile.png");
+  background-repeat: no-repeat;
+  background-size: cover;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  gap: 1.5rem;
+  padding-top: 1.5rem;
+
+  .heading {
+    color: white;
+    font-size: 1.5rem;
+    line-height: 1.625rem;
+    font-weight: 500;
+  }
+  .input-container {
+    display: flex;
+
+    .input {
+      border: none;
+      outline: none !important;
+      border-radius: 1rem;
+      border-top-right-radius: 0;
+      border-bottom-right-radius: 0;
+      padding-block: 1rem;
+      padding-inline-start: 2rem;
+      position: relative;
+      font-size: 1rem;
+      font-weight: 500;
+      width: 18rem;
+      &::placeholder {
+        padding-right: 2rem;
+        font-size: 14px;
+      }
+    }
+    .button {
+      border: none;
+      width: 3rem;
+      background-color: black;
+      border-top-right-radius: 1rem;
+      border-bottom-right-radius: 1rem;
+    }
+  }
+
+  .info {
+    position: absolute;
+    bottom: -75%;
+    z-index: 9999;
+    background-color: white;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    gap: 1.5rem;
+    padding-block: 1.5rem;
+    padding-inline: 3rem;
+    border-radius: 1rem;
+
+    .title {
+      color: var(--dark-gray);
+      font-size: 0.75rem;
+      text-align: center;
+      padding-bottom: 0.5rem;
+    }
+
+    .body {
+      text-align: center;
+      font-weight: 700;
+      font-size: 18px;
+      color: var(--very-dark-gray);
+      max-width: 200px;
+      white-space: pre-wrap;
+    }
+  }
+
+  @media (min-width: $desktop-size) {
+    background-image: url("./images/pattern-bg-desktop.png");
+
+    .heading {
+      font-size: 2rem;
+      letter-spacing: 0.025rem;
+    }
+    .input-container {
+      .input {
+        width: 40rem;
+        &::placeholder {
+          font-size: 1rem;
+        }
+      }
+    }
+  }
+}
+
+// controle the width of the marker using the marker class
+.leaflet-marker-icon {
+  width: 32px !important;
+
+  @media (min-width: $desktop-size) {
+    width: 48px !important;
+  }
+}
